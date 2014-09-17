@@ -30,6 +30,7 @@ Notifications.allow({
     if( doc.accepted === true || doc.declined === true || doc.displayed === true ){
       return false;
     }
+    console.log( doc );
     return (doc.from === Meteor.userId());
   },
   'update': function(userId, doc, fields, modifier){
@@ -42,5 +43,9 @@ Notifications.allow({
     return (doc.from === Meteor.userId());
   }
 });
+
+Notifications.relatedToUser = function( userId ){
+  return Notifications.find({$and: [{$or: [{from: userId}, {to: userId}]},{accepted: false,declined: false}] });
+};
 
 NotificationSettings = {};

@@ -1,9 +1,14 @@
 Meteor.publish('Notifications', function(){
-  return Notifications.find({$or: [{from: this.userId}, {to: this.userId}] });
-});
-
-Meteor.publish('NotificationRelatedUsers', function(){
-  return Notifications.find({$and: [{$or: [{from: this.userId}, {to: this.userId}]},{accepted: false,declined: false}] });
+  var userIds = [];  
+  _.each( Notifications.relatedToUser(this.userId).fetch(), function( n ){
+    userIds.push( n.to );
+    userIds.push( n.from );
+  });
+  console.log( userIds );
+  return [
+    Notifications.relatedToUser(this.userId),
+    Meteor.users.find({'_id': {$in: userIds}})
+  ];
 });
 
 Notifications.after.update(function(userId, doc, fieldNames, modifier, options){
