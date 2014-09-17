@@ -1,0 +1,36 @@
+<template name="notifyIcon">
+  <a id="notifyIcon" data-toggle="modal" href="#notificationModal"><i class="fa fa-bell"><sub>{{count}}</sub></i></a>
+  {{> notificationOuter}}
+</template>
+
+<template name="notificationOuter">
+  <div id="notificationModal" class="modal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="notificationModalLabel">
+    {{> notifications }}
+  </div> 
+</template>
+
+<template name="notifications">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="notificationModalLabel">Notifications</h4>
+      </div>
+      <div class="modal-body">
+        {{#each notifications}}
+          {{> notification}}
+        {{/each}}
+      </div>
+      <div class="modal-footer"> 
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="notification">
+  <div class="row">
+    {{> itsTemplate}}
+    <button class='btn btn-primary accept'>Accept</button>
+    <button class='btn btn-danger decline'>Decline</button>
+  </div>
+</template>

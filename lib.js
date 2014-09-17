@@ -1,0 +1,46 @@
+NotificationsSchema = new SimpleSchema({
+  notifyType: {
+    type: String
+  },
+  from: {
+    type: String
+  },
+  to: {
+    type: String
+  },
+  accepted: {
+    type: Boolean,
+    defaultValue: false
+  },
+  declined: {
+    type: Boolean,
+    defaultValue: false
+  },
+  displayed: {
+    type: Boolean,
+    defaultValue: false
+  }
+});
+
+Notifications = new Meteor.Collection('Notifications');
+Notifications.attachSchema( NotificationsSchema );
+
+Notifications.allow({
+  'insert': function(userId, doc){
+    if( doc.accepted === true || doc.declined === true || doc.displayed === true ){
+      return false;
+    }
+    return (doc.from === Meteor.userId());
+  },
+  'update': function(userId, doc, fields, modifier){
+    if( modifier.$set.to !== undefined || modifier.$set.from !== undefined ){
+      return false;
+    }
+    return (doc.to === Meteor.userId());
+  },
+  'remove': function(userId, doc){
+    return (doc.from === Meteor.userId());
+  }
+});
+
+NotificationSettings = {};
