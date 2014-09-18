@@ -4,10 +4,11 @@ Meteor.publish('Notifications', function(){
     userIds.push( n.to );
     userIds.push( n.from );
   });
+  console.log( Notifications.relatedToUser(this.userId).fetch() );
   console.log( userIds );
   return [
-    Notifications.relatedToUser(this.userId),
-    Meteor.users.find({'_id': {$in: userIds}})
+    Meteor.users.find({'_id': {$in: userIds}}),
+    Notifications.relatedToUser(this.userId)
   ];
 });
 

@@ -3,10 +3,14 @@ NotificationsSchema = new SimpleSchema({
     type: String
   },
   from: {
-    type: String
+    type:SimpleSchema.RegEx.Id  
   },
   to: {
-    type: String
+    type: SimpleSchema.RegEx.Id  
+  },
+  regarding: {
+    type: SimpleSchema.RegEx.Id,
+    optional: true
   },
   accepted: {
     type: Boolean,
