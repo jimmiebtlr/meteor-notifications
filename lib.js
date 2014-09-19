@@ -12,6 +12,14 @@ NotificationsSchema = new SimpleSchema({
     type: SimpleSchema.RegEx.Id,
     optional: true
   },
+  msg: {
+    type: String,
+    optional: true
+  },
+  reminderMsg: {
+    type: String,
+    optional: true
+  },
   accepted: {
     type: Boolean,
     defaultValue: false

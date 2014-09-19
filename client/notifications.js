@@ -22,3 +22,11 @@ Template.notification.events({
     Notifications.update({'_id': this._id},{'$set': {'declined': true}});
   }
 });
+
+var notificationSubs = new SubsManager({cacheLimit: 9999, expireIn: 9999});
+
+Meteor.startup({
+  notificationSubs.subscribe('Notifications');
+});
+
+

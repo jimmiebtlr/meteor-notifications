@@ -1,13 +1,14 @@
 Package.describe({
   summary: "User notifications with navbar icon template.",
-  version: "0.0.1-rc2",
+  version: "0.0.1-rc3",
   git: "https://github.com/jimmiebtlr/meteor-notifications.git"
 });
 
 Package.onUse(function(api) {
   api.use([
     'templating',
-    'aldeed:autoform@2.0.0' 
+    'aldeed:autoform@2.0.0',
+    'meteorhacks:subs-manager'
     ],'client');
   api.use([
     'aldeed:simple-schema@1.0.3',
@@ -33,4 +34,19 @@ Package.onUse(function(api) {
 
   api.export("Notifications");
   api.export("NotificationSettings");
+});
+
+Package.onTest(function(api){
+  api.use(['jimmiebtlr:notifications','tinytest','test-helpers'])
+  api.addFiles([
+    'tests/client-test.js',
+  ],'client');
+  api.addFiles([
+      'tests/lib-test.js'],
+      ['client','server']
+  );
+  api.addFiles([
+      'tests/server-test.js'],
+      'server'
+  );
 });
