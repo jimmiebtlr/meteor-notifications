@@ -1,5 +1,9 @@
 <template name="notifyIcon">
-  <a id="notifyIcon" data-toggle="modal" href="#notificationModal"><i class="fa fa-bell"><sub>{{count}}</sub></i></a>
+  <a id="notifyIcon" data-toggle="modal" href="#notificationModal"><i class="fa fa-bell">
+      {{#if count}}
+        <sub class="badge alert-danger">{{count}}</sub>
+      {{/if}}
+  </i></a>
   {{> notificationOuter}}
 </template>
 
@@ -29,7 +33,9 @@
 
 <template name="notification">
   <div class="row">
-    {{> itsTemplate}}
+    <div class="col-md-8">
+      {{msg}}
+    </div>
     <button class='btn btn-primary accept'>Accept</button>
     <button class='btn btn-danger decline'>Decline</button>
   </div>

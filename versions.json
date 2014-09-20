@@ -2,11 +2,11 @@
   "dependencies": [
     [
       "aldeed:autoform",
-      "2.0.0"
+      "2.0.2"
     ],
     [
       "aldeed:collection2",
-      "1.0.0"
+      "2.0.1"
     ],
     [
       "aldeed:simple-schema",
@@ -14,7 +14,11 @@
     ],
     [
       "application-configuration",
-      "1.0.1"
+      "1.0.2"
+    ],
+    [
+      "base64",
+      "1.0.0"
     ],
     [
       "binary-heap",
@@ -42,7 +46,7 @@
     ],
     [
       "ejson",
-      "1.0.1"
+      "1.0.2"
     ],
     [
       "follower-livedata",
@@ -54,7 +58,7 @@
     ],
     [
       "htmljs",
-      "1.0.0"
+      "1.0.1"
     ],
     [
       "id-map",
@@ -74,7 +78,7 @@
     ],
     [
       "logging",
-      "1.0.2"
+      "1.0.3"
     ],
     [
       "matb33:collection-hooks",
@@ -82,15 +86,19 @@
     ],
     [
       "meteor",
-      "1.0.3"
+      "1.1.0"
+    ],
+    [
+      "meteorhacks:subs-manager",
+      "1.1.0"
     ],
     [
       "minimongo",
-      "1.0.2"
+      "1.0.3"
     ],
     [
       "mongo",
-      "1.0.4"
+      "1.0.5"
     ],
     [
       "mongo-livedata",
@@ -122,7 +130,7 @@
     ],
     [
       "templating",
-      "1.0.5"
+      "1.0.6"
     ],
     [
       "tracker",
@@ -138,6 +146,6 @@
     ]
   ],
   "pluginDependencies": [],
-  "toolVersion": "meteor-tool@1.0.28",
+  "toolVersion": "meteor-tool@1.0.31",
   "format": "1.0"
 }
