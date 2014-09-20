@@ -1,6 +1,6 @@
 Package.describe({
   summary: "User notifications with navbar icon template.",
-  version: "0.0.1-rc3",
+  version: "0.0.1-rc4",
   git: "https://github.com/jimmiebtlr/meteor-notifications.git"
 });
 
