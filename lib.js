@@ -1,22 +1,26 @@
 NotificationsSchema = new SimpleSchema({
   notifyType: {
-    type: String
+    type: String,
+    denyUpdate: true
   },
   from: {
-    type:SimpleSchema.RegEx.Id  
+    type:SimpleSchema.RegEx.Id,
+    denyUpdate: true
   },
   to: {
-    type: SimpleSchema.RegEx.Id  
+    type: SimpleSchema.RegEx.Id,
+    denyUpdate: true
   },
   regarding: {
     type: SimpleSchema.RegEx.Id,
-    optional: true
+    optional: true,
+    denyUpdate: true
   },
   msg: {
     type: String,
     optional: true
   },
-  reminderMsg: {
+  fromMsg: {
     type: String,
     optional: true
   },
