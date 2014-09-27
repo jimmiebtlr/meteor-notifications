@@ -17,6 +17,7 @@ User notifications package for meteorjs.  Intended for use to send sharing or fr
     });
 
 ## Fill message shown to receiving user
+Uses collection-hooks.  This should go on sever.
 
     Notifications.before.insert(function(userId, doc){
       check( doc.from, String);
@@ -30,4 +31,11 @@ User notifications package for meteorjs.  Intended for use to send sharing or fr
 
     {{> notifyIcon}}
 
+## Take action on accept
+On Server
 
+    Notifications.after.update(function(userId, doc, fieldNames, modifier, options){
+      if( doc.accepted && doc.notifyType === "SPECIFIC REQ TYPE"){
+        // Do some action for accepted request
+      }
+    });
