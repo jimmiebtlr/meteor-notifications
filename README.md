@@ -2,6 +2,8 @@ meteor-notifications
 ====================
 User notifications package for meteorjs.  Intended for use to send sharing or friend requests.
 
+    meteor add jimmiebtlr:notifications
+
 # Setup
 
 ## New notification from client
